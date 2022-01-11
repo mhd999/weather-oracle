@@ -11,7 +11,9 @@ type Server struct {
 }
 
 func (s *Server) GetWeather(ctx context.Context, in *weather.GetWeatherRequest) (*weather.GetWeatherReply, error) {
-	status := getClothesRecommendation()
+	city := in.GetCity()
+
+	status := getClothesRecommendation(city)
 
 	return &status, nil
 }

@@ -19,7 +19,7 @@
 
 ## Use
 
-`curl http://localhost:8081/v1/weather/get`
+`curl http://localhost:8081/v1/weather/get?city=oslo`
 
 ## Regenerate the code for the API spec
 

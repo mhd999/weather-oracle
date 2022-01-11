@@ -27,10 +27,10 @@ type Recomendation struct {
 	RecommendedClothes string
 }
 
-func getClothesRecommendation() weather.GetWeatherReply {
+func getClothesRecommendation(city string) weather.GetWeatherReply {
 	c := make(chan Status, 2)
 
-	go fetchOpenWeather(c)
+	go fetchOpenWeather(c, city)
 	go getRandomWeather(c)
 
 	status := make([]Status, 0)
@@ -74,8 +74,9 @@ func getClothesRecommendation() weather.GetWeatherReply {
 	}
 }
 
-func fetchOpenWeather(c chan Status) {
-	url := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?q=oslo&appid=%s", os.Getenv("API_ID"))
+func fetchOpenWeather(c chan Status, city string) {
+	url := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", city, os.Getenv("API_ID"))
+
 	response, err := http.Get(url)
 	if err != nil {
 		fmt.Println(err)
