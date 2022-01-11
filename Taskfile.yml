@@ -1,0 +1,18 @@
+version: "3"
+
+tasks:
+  run: 
+   cmds: 
+     - go run main.go
+  
+  test:
+    desc: Run test suite
+    cmds:
+      - go test -v ./weather
+
+  gen:
+    cmds:
+      - protoc --proto_path=. --go_out=plugins=grpc:proto/go --grpc-gateway_out=proto/go google/api/annotations.proto
+      - protoc --proto_path=. --go_out=plugins=grpc:proto/go --grpc-gateway_out=proto/go google/api/http.proto
+      - protoc --proto_path=. --go_out=plugins=grpc:proto/go --grpc-gateway_out=proto/go proto/weather.proto
+  

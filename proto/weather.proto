@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package weather;
+
+option go_package = "services/weather";
+
+import "google/api/annotations.proto";
+
+service Weather {
+    rpc GetWeather (GetWeatherRequest) returns (GetWeatherReply){
+        option (google.api.http) = {
+            get: "/v1/weather/get"
+          };
+    }
+}
+
+message GetWeatherRequest {
+    string city = 1;
+}
+
+message GetWeatherReply {
+    int32 tempreture = 1;
+    string cloth_recomendation = 2;
+    string status = 3; //rainy - sunny - ...
+}
