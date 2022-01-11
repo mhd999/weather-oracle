@@ -13,7 +13,7 @@
 
 `API_ID=<weather-api-id> task run`
 
-## Run
+## Run tests
 
 `task test`
 
