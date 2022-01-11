@@ -28,7 +28,7 @@ func init() {
 func runGRPCServer() error {
 	lis, err := net.Listen("tcp", *grpcServerPort)
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		return err
 	}
 
 	s := grpc.NewServer()
