@@ -21,7 +21,7 @@
 
 `curl http://localhost:8081/v1/weather/get?city=oslo`
 
-## Regenerate the code for the API spec
+## Regenerate the code from the API spec
 
 In case you want to update the API spec in `.proto` files 
 
