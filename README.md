@@ -1,5 +1,9 @@
 # Weather Oracle
 
+The intention of this application is educational.
+
+The code will demonstrate how gRPC can be used in Go.
+
 ## Install
 
 
